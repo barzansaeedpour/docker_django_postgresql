@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+  pgadmin:
+    container_name: pgadmin4_container
+    image: dpage/pgadmin4
+    restart: always
+    ports:
+      - "5050:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: barzansaeedpour@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+  web:
+    tty: true
+    build: .
+    volumes:
+      - type: bind
+        source: .
+        target: /code
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db 
