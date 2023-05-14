@@ -17,8 +17,8 @@ Follow the steps below to run the Django application with PostgreSQL using Docke
 1. Clone this repository:
 
    ```shell
-   git clone https://github.com/barzansaeedpour/docker_django_postgres.git
-   cd docker-django-postgres
+   git clone https://github.com/barzansaeedpour/docker_django_postgresql.git
+   cd docker_django_postgresql
    ```
 
 2. Build the Docker images and start the containers:
